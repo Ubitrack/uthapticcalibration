@@ -4,9 +4,6 @@ set(UBITRACK_LIBRARY_NAME uthapticcalibration)
 # Source and Header Files
 include_directories(${CMAKE_SOURCE_DIR}/components)
 
-# writes config file into binary_dir, so sourcetree will not be cluttered
-configure_file(utFacade/Config_cmake.hh ${CMAKE_CURRENT_SOURCE_DIR}/utFacade/Config.h)
-
 # All cpp files for UTCORE
 FILE(GLOB UBITRACK_SRCS RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}"
    "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
