@@ -3,7 +3,7 @@ This is the uthapticcalibration Ubitrack submodule.
 
 ## Description
 
-The utcore contains algorithms for haptic device calibration. 
+The uthapticcalibration library contains algorithms for haptic device calibration. 
 
 ## For Users: Use this package
 
