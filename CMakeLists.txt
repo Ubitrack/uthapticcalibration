@@ -1,9 +1,9 @@
-project(ubitrack_hapticcalibration)
-
 cmake_minimum_required(VERSION 3.4.0)
 
+project(ubitrack_hapticcalibration VERSION 1.3.0 LANGUAGES CXX)
+
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup(KEEP_RPATHS)
+conan_basic_setup(TARGETS)
 
 include(GNUInstallDirs)
 include(cmake/UbitrackConfig)
