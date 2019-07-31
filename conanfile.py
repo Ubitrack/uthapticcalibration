@@ -12,18 +12,28 @@ class UbitrackCoreConan(ConanFile):
     short_paths = True
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake"
-    options = {"shared": [True, False]}
-    requires = (
-        "ubitrack_core/%s@ubitrack/stable" % version,
-        "ubitrack_dataflow/%s@ubitrack/stable" % version,
-       )
 
-    default_options = (
-        "shared=True",
-        )
+    options = { 
+        "shared": [True, False],
+        "workspaceBuild" : [True, False],
+    }
+
+
+    default_options = {
+        "shared" : True,
+        "workspaceBuild" : False,
+        }
 
     # all sources are deployed with the package
     exports_sources = "doc/*", "src/*", "CMakeLists.txt", "uthapticcalibrationConfig.cmake"
+
+    def requirements(self):
+        userChannel = "ubitrack/stable"
+        if self.options.workspaceBuild:
+            userChannel = "local/dev"
+
+        self.requires("ubitrack_core/%s@%s" % (self.version, userChannel))
+        self.requires("ubitrack_dataflow/%s@%s" % (self.version, userChannel))
 
     def configure(self):
         if self.options.shared:
